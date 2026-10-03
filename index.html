@@ -4,6 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Demo Desk</title>
+    <script>
+      (() => {
+        let theme = 'light';
+        try {
+          if (sessionStorage.getItem('theme') === 'dark') theme = 'dark';
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -15,10 +24,35 @@
           <p class="tagline">A small page for Wicked to work on</p>
         </div>
       </div>
+      <div class="header-controls">
       <nav class="nav" aria-label="Sections">
         <a href="#overview" aria-current="page">Overview</a>
         <a href="#runs">Runs</a>
       </nav>
+      <div class="theme-toggle" role="group" aria-label="Color theme">
+        <button type="button" data-theme-choice="light" aria-pressed="true">Light</button>
+        <button type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
+      </div>
+      </div>
+      <script>
+        (() => {
+          const buttons = document.querySelectorAll('[data-theme-choice]');
+          function applyTheme(theme) {
+            document.documentElement.dataset.theme = theme;
+            buttons.forEach(button => {
+              button.setAttribute('aria-pressed', String(button.dataset.themeChoice === theme));
+            });
+          }
+          applyTheme(document.documentElement.dataset.theme);
+          buttons.forEach(button => {
+            button.addEventListener('click', () => {
+              const theme = button.dataset.themeChoice;
+              applyTheme(theme);
+              try { sessionStorage.setItem('theme', theme); } catch {}
+            });
+          });
+        })();
+      </script>
     </header>
 
     <main>

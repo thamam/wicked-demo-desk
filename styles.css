@@ -1,3 +1,39 @@
+:root {
+  color-scheme: light;
+  --page: #f5f7fb;
+  --text: #18202e;
+  --border: #d5dbe5;
+  --header: #ffffff;
+  --selected: #e4eaf5;
+  --muted: #556176;
+  --link: #344969;
+  --surface: #ffffff;
+  --row-border: #e1e6ee;
+  --pass-bg: #def5e7;
+  --pass-text: #17643a;
+  --revise-bg: #fff0d6;
+  --revise-text: #805000;
+  --subtle: #596579;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0b0d12;
+  --text: #e7e9ee;
+  --border: #1f2430;
+  --header: #10131a;
+  --selected: #1b2130;
+  --muted: #8a91a3;
+  --link: #b9bfcc;
+  --surface: #141822;
+  --row-border: #1a1f2a;
+  --pass-bg: #12301f;
+  --pass-text: #6fdc9b;
+  --revise-bg: #33240f;
+  --revise-text: #f2b45a;
+  --subtle: #6b7285;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -9,8 +45,8 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: #0b0d12;
-  color: #e7e9ee;
+  background: var(--page);
+  color: var(--text);
 }
 
 .topbar {
@@ -18,8 +54,8 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 20px 32px;
-  border-bottom: 1px solid #1f2430;
-  background: #10131a;
+  border-bottom: 1px solid var(--border);
+  background: var(--header);
 }
 
 .brand {
@@ -34,8 +70,8 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: #1b2130;
-  color: #e7e9ee;
+  background: var(--selected);
+  color: var(--text);
   font-weight: 700;
 }
 
@@ -47,7 +83,7 @@ h1 {
 .tagline {
   margin: 2px 0 0;
   font-size: 13px;
-  color: #8a91a3;
+  color: var(--muted);
 }
 
 .nav {
@@ -58,14 +94,14 @@ h1 {
 .nav a {
   padding: 8px 12px;
   border-radius: 8px;
-  color: #b9bfcc;
+  color: var(--link);
   font-size: 14px;
   text-decoration: none;
 }
 
 .nav a[aria-current="page"] {
-  background: #1b2130;
-  color: #e7e9ee;
+  background: var(--selected);
+  color: var(--text);
 }
 
 main {
@@ -82,15 +118,15 @@ main {
 
 .card {
   padding: 20px;
-  border: 1px solid #1f2430;
+  border: 1px solid var(--border);
   border-radius: 14px;
-  background: #141822;
+  background: var(--surface);
 }
 
 .card-label {
   margin: 0;
   font-size: 13px;
-  color: #8a91a3;
+  color: var(--muted);
 }
 
 .card-value {
@@ -102,9 +138,9 @@ main {
 .panel {
   margin-top: 24px;
   padding: 20px 24px;
-  border: 1px solid #1f2430;
+  border: 1px solid var(--border);
   border-radius: 14px;
-  background: #141822;
+  background: var(--surface);
 }
 
 h2 {
@@ -120,15 +156,15 @@ table {
 
 th {
   padding: 10px 0;
-  border-bottom: 1px solid #1f2430;
-  color: #8a91a3;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
   font-weight: 500;
   text-align: left;
 }
 
 td {
   padding: 12px 0;
-  border-bottom: 1px solid #1a1f2a;
+  border-bottom: 1px solid var(--row-border);
 }
 
 .badge {
@@ -139,30 +175,30 @@ td {
 }
 
 .badge.pass {
-  background: #12301f;
-  color: #6fdc9b;
+  background: var(--pass-bg);
+  color: var(--pass-text);
 }
 
 .badge.revise {
-  background: #33240f;
-  color: #f2b45a;
+  background: var(--revise-bg);
+  color: var(--revise-text);
 }
 
 .note {
   margin: 12px 0 0;
   font-size: 12px;
-  color: #6b7285;
+  color: var(--subtle);
 }
 
 .footer {
   padding: 24px;
-  color: #6b7285;
+  color: var(--subtle);
   font-size: 13px;
   text-align: center;
 }
 
 .footer a {
-  color: #b9bfcc;
+  color: var(--link);
 }
 
 @media (max-width: 640px) {
@@ -176,5 +212,57 @@ td {
 
   .cards {
     grid-template-columns: 1fr;
+  }
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.theme-toggle {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.theme-toggle button {
+  min-height: 36px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.theme-toggle button[aria-pressed="true"] {
+  background: var(--selected);
+  color: var(--text);
+  border-color: var(--muted);
+  font-weight: 700;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .header-controls {
+    width: 100%;
+    justify-content: space-between;
   }
 }
