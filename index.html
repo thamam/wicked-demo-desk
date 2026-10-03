@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo Desk</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">D</span>
+        <div>
+          <h1>Demo Desk</h1>
+          <p class="tagline">A small page for Wicked to work on</p>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Sections">
+        <a href="#overview" aria-current="page">Overview</a>
+        <a href="#runs">Runs</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="overview" class="cards" aria-label="Overview">
+        <article class="card">
+          <p class="card-label">Agents online</p>
+          <p class="card-value">3</p>
+        </article>
+        <article class="card">
+          <p class="card-label">Runs today</p>
+          <p class="card-value">12</p>
+        </article>
+        <article class="card">
+          <p class="card-label">Open briefs</p>
+          <p class="card-value">4</p>
+        </article>
+      </section>
+
+      <section id="runs" class="panel">
+        <h2>Recent runs</h2>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Run</th>
+              <th scope="col">Board</th>
+              <th scope="col">Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#12</td>
+              <td>Feature</td>
+              <td><span class="badge pass">pass</span></td>
+            </tr>
+            <tr>
+              <td>#11</td>
+              <td>Bug-debug</td>
+              <td><span class="badge revise">revise</span></td>
+            </tr>
+            <tr>
+              <td>#10</td>
+              <td>Feature</td>
+              <td><span class="badge pass">pass</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">Sample data.</p>
+      </section>
+    </main>
+
+    <footer class="footer">Demo page for <a href="https://wicked.clawdoc.dev">Wicked</a>.</footer>
+  </body>
+</html>
