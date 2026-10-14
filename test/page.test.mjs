@@ -12,6 +12,10 @@ test("page has a main landmark", () => {
   assert.match(html, /<main[\s>]/);
 });
 
+test("page shows the Pilot connected line", () => {
+  assert.match(html, /<p class="tagline">Pilot connected<\/p>/, "expected the Pilot connected line using existing tagline styling");
+});
+
 test("every local asset the page references exists", () => {
   const refs = [...html.matchAll(/(?:href|src)="([^"#:]+)"/g)].map((m) => m[1]);
   assert.ok(refs.length > 0, "expected at least one local asset");
