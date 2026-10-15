@@ -10,3 +10,5 @@ agent implement it in this repository, and has a Critic review the result.
 - `npm start` serves the project at http://127.0.0.1:8095/ (`npm start -- dist` serves the build).
 
 No dependencies; Node 22 or newer.
+
+Live preview: https://thamam.github.io/wicked-demo-desk/ — redeploys on every push to main.
