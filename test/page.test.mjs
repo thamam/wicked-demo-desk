@@ -16,6 +16,10 @@ test("page shows the Pilot connected line", () => {
   assert.match(html, /<p class="tagline">Pilot connected<\/p>/, "expected the Pilot connected line");
 });
 
+test("page shows the Hosted preview live line", () => {
+  assert.match(html, /Hosted preview live/, "expected the Hosted preview live line");
+});
+
 test("every local asset the page references exists", () => {
   const refs = [...html.matchAll(/(?:href|src)="([^"#:]+)"/g)].map((m) => m[1]);
   assert.ok(refs.length > 0, "expected at least one local asset");
