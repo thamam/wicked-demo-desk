@@ -5,6 +5,10 @@ A small static page used as the target project in a film about
 On camera, Wicked's Feature board takes a request, plans and designs it, has a coding
 agent implement it in this repository, and has a Critic review the result.
 
+## How to run
+
+npm start
+
 - `npm test` checks the page and that every local asset it references exists.
 - `npm run build` copies the site into `dist/`.
 - `npm start` serves the project at http://127.0.0.1:8095/ (`npm start -- dist` serves the build).
