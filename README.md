@@ -1,5 +1,13 @@
 # Demo Desk
 
+## How to run
+
+With Node 22 or newer, run from the repository root (`wicked-demo-desk/`):
+
+```sh
+npm start
+```
+
 A small static page used as the target project in a film about
 [Wicked](https://wicked.clawdoc.dev), a visual desk for multi-agent pipelines.
 On camera, Wicked's Feature board takes a request, plans and designs it, has a coding
